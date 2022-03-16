@@ -23,9 +23,25 @@
   
   <script> 
         var myTime = undefined;
-        function recordReact() {
-      myTime = Date.now();
-      console.log(myTime);
+          function recordReact() {
+          myTime = Date.now();
+          console.log(myTime);
+    }
+    function startTime() {
+        for (let k = 0; k <= 3; k++) {
+          setTimeout(() => {
+            document.getElementById('countdown').innerHTML = k;
+          }, (3 - k) * 1000);
+        }
+        setTimeout(() => {
+        if (myTime == undefined) {
+          document.getElementById('target').innerHTML = "Too slow";
+        } else {
+          buttonTime = Date.now();
+          elapsedTime = buttonTime - myTime;
+          document.getElementById('target').innerHTML = "Time was: " + elapsedTime;
+        }
+      }, 3000)
     }
   </script>
 
