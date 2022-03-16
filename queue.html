@@ -36,8 +36,10 @@
 	<button onclick="makeNewDiv()">Add value</button>
 	<p>Press the button to remove the last element from the container.</p>
 	<button onclick="fetchItem()">Fetch</button>
-	<p>Press the button to zap the element from the container.</p>
+	<p>Press the button to get rid of elements with same text.</p>
 	<button onclick="zap()">Zap values</button>
+	<p>Press the button to remove the duplicates</p>
+	<button onclick="removeDuplicates()">Unique</button>
 </body>
 <script>
 	function makeNewDiv(){
@@ -66,9 +68,21 @@
 			i++;
 			if (queueItem.innerHTML == input) {
 				queueItems[i - 1].remove();
-				console.log("We have zapped the duplicate elements");
+				console.log("We got rid of elements having same text");
 			}
 		}
+	}
+	function removeDuplicates() {
+        queueItems = document.getElementsByClassName('queue');
+        var len = queueItems.length
+        for (let i = 0; i < len; i++) {
+            for (let j = i + 1; j < len - 1; j++) {
+                if (queueItems[i].innerHTML == queueItems[j].innerHTML) {
+                    queueItems[j].remove();
+                    
+                }
+            }
+        }
 	}
 </script>
 </html>	
